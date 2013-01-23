@@ -4,9 +4,7 @@ module Tools
   def max(a,b) a > b ? a : b; end
   def bound(a,bounded,c) bounded < a ? a : (bounded > c) ? c : bounded; end
 
-  def point(*args); Point.new *args end
-  def rect(*args); Rectangle.new *args end
-  def buffer(*args); Buffer.new *args end
-  def window(*args); Window.new *args end
+  def point(*args); GuiGeometry::Point.new *args end
+  def rect(*args); GuiGeometry::Rectangle.new *args end
 end
 end

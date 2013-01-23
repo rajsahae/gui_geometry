@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = GuiGeometry::VERSION
   gem.authors       = ["Shane Brinkman-Davis"]
   gem.email         = ["shanebdavis@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{2D geometry specificly designed to support graphical user interfaces and bitmaps currently focsued on Point and Rectangle classes}
+  gem.summary       = %q{2D geometry specificly designed to support graphical user interfaces and bitmaps}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
