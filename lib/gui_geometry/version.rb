@@ -1,0 +1,3 @@
+module GuiGeometry
+  VERSION = "0.0.1"
+end
