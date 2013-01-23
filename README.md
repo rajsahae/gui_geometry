@@ -46,19 +46,19 @@ my_rect = rect point(4,5), point(100,80)
 # => rect(4,5,100,80)
 
 # create rectangle - size form (location defaults to 0,0
-> rect point(30,50)
+rect point(30,50)
 # => rect(0,0,30,50)
 
 # get loc and size:
-> [my_rect.loc, my_rect.size]
+[my_rect.loc, my_rect.size]
 # => [point(4,5), point(100,80)]
 
 # get x, y, width and height
-> [my_rect.x, my_rect.y, my_rect.w, my_rect.h]
+[my_rect.x, my_rect.y, my_rect.w, my_rect.h]
 # => [4, 5, 100, 80]
 
 # get the 4 corners:
-> [my_rect.tl, my_rect.tr, my_rect.bl, my_rect.br]
+[my_rect.tl, my_rect.tr, my_rect.bl, my_rect.br]
 # => [point(4,5), point(104,5), point(4,85), point(104,85)]
 
 ```
