@@ -1,4 +1,3 @@
-require "gui_geometry/version"
 
 %w{
   tools

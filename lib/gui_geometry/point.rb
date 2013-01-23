@@ -10,7 +10,7 @@ class Point < Struct.new(:x, :y)
   def min(b); point(super(x, b.x), super(y, b.y)); end
   def max(b); point(super(x, b.x), super(y, b.y)); end
 
-  def inspect; "Point(#{x},#{y})" end
+  def inspect; "point(#{x},#{y})" end
   def to_s; "(#{x},#{y})" end
 
   def >=(b) x>=b.x && y>=b.y end
