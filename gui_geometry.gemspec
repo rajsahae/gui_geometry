@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["shanebdavis@gmail.com"]
   gem.description   = %q{2D geometry specificly designed to support graphical user interfaces and bitmaps currently focsued on Point and Rectangle classes}
   gem.summary       = %q{2D geometry specificly designed to support graphical user interfaces and bitmaps}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/shanebdavis/gui_geometry"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
