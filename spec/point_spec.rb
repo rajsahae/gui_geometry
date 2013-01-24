@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module GuiGeometry
 describe "Point" do
-  include Tools
+  include ::GuiGeometry
 
   it "init" do
     point.should == point(0,0)

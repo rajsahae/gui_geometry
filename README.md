@@ -24,7 +24,7 @@ Rectangles consist of two point objects. One specifies the location of the recta
 
 ``` ruby
 require "gui_geometry"
-include GuiGeometry::Tools
+include GuiGeometry
 
 # create point x == y == 0
 point
@@ -61,6 +61,24 @@ rect point(30,50)
 [my_rect.tl, my_rect.tr, my_rect.bl, my_rect.br]
 # => [point(4,5), point(104,5), point(4,85), point(104,85)]
 
+```
+
+To get access to min, max, bound, and minmax:
+
+```
+include GuiGeometry::Tools
+
+min(4,5)
+# => 4
+
+max(4,5)
+# => 5
+
+minmax(4,5)
+# => [4,5]
+
+bound(5,4,10)
+# => 5
 ```
 
 ## Contributing

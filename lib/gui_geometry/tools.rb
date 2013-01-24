@@ -1,5 +1,6 @@
 module GuiGeometry
 module Tools
+  include ::GuiGeometry
   def min(a,b) a < b ? a : b; end
   def max(a,b) a > b ? a : b; end
   def minmax(a,b)
@@ -10,8 +11,5 @@ module Tools
     end
   end
   def bound(a,bounded,c) max(a,min(bounded,c)); end
-
-  def point(*args); GuiGeometry::Point.new *args end
-  def rect(*args); GuiGeometry::Rectangle.new *args end
 end
 end

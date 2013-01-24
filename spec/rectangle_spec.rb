@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module GuiGeometry
 describe "Rectangle" do
-  include Tools
+  include ::GuiGeometry
 
   it "defaults" do
     rect.should == rect(0,0,0,0)
