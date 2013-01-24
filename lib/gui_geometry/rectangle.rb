@@ -1,4 +1,4 @@
-module GuiGeometry
+module GuiGeo
 class Rectangle < Struct.new(:loc, :size)
   include Tools
 

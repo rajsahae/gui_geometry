@@ -1,4 +1,4 @@
-# GuiGeometry
+# GuiGeo
 
 There are a few good geometry gems already available for Ruby (ruby-geometry and geometry), but I need one which is focused on the needs of creating 2D graphical user interfaces.
 
@@ -24,7 +24,7 @@ Rectangles consist of two point objects. One specifies the location of the recta
 
 ``` ruby
 require "gui_geometry"
-include GuiGeometry
+include GuiGeo
 
 # create point x == y == 0
 point
@@ -66,7 +66,7 @@ rect point(30,50)
 To get access to min, max, bound, and minmax:
 
 ```
-include GuiGeometry::Tools
+include GuiGeo::Tools
 
 min(4,5)
 # => 4

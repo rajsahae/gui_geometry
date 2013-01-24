@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-module GuiGeometry
+module GuiGeo
 describe "Point" do
-  include ::GuiGeometry
+  include ::GuiGeo
 
   it "init" do
     point.should == point(0,0)

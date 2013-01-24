@@ -1,6 +1,6 @@
-module GuiGeometry
+module GuiGeo
 module Tools
-  include ::GuiGeometry
+  include ::GuiGeo
   def min(a,b) a < b ? a : b; end
   def max(a,b) a > b ? a : b; end
   def minmax(a,b)

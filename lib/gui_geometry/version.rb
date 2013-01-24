@@ -1,3 +1,3 @@
-module GuiGeometry
-  VERSION = "0.0.6"
+module GuiGeo
+  VERSION = "0.1.0"
 end

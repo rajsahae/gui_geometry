@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-module GuiGeometry
+module GuiGeo
 describe "Rectangle" do
-  include ::GuiGeometry
+  include ::GuiGeo
 
   it "defaults" do
     rect.should == rect(0,0,0,0)

@@ -1,4 +1,4 @@
-module GuiGeometry
+module GuiGeo
 class Point < Struct.new(:x, :y)
   include Tools
 

@@ -5,7 +5,7 @@ require 'gui_geometry/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "gui_geometry"
-  gem.version       = GuiGeometry::VERSION
+  gem.version       = GuiGeo::VERSION
   gem.authors       = ["Shane Brinkman-Davis"]
   gem.email         = ["shanebdavis@gmail.com"]
   gem.description   = %q{2D geometry specificly designed to support graphical user interfaces and bitmaps currently focsued on Point and Rectangle classes}

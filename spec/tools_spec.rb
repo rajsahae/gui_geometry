@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module GuiGeometry
+module GuiGeo
 describe "Tools" do
   include Tools
 
