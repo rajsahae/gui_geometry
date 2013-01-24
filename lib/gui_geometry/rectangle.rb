@@ -63,7 +63,7 @@ class Rectangle < Struct.new(:loc, :size)
   alias :& :union
 
   def intersection(b)
-    return rect unless b
+    return self unless b
     l = loc.max(b.loc)
     s = br.min(b.br) - l
     return rect unless s>point

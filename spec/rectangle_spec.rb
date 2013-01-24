@@ -65,6 +65,11 @@ describe "Rectangle" do
     (rect(0,0,10,10)   | rect(-5,-5,10,10)).should == rect(0,0,5,5)
   end
 
+  it "default intersection and union" do
+    (rect(0,0,10,10) | nil).should == rect(0,0,10,10)
+    (rect(0,0,10,10) & nil).should == rect(0,0,10,10)
+  end
+
   it ".present?" do
     rect(0,0,1,1).present?.should == true
     rect(0,0,1,0).present?.should == false
