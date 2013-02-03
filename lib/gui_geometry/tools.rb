@@ -11,5 +11,9 @@ module Tools
     end
   end
   def bound(a,bounded,c) max(a,min(bounded,c)); end
+
+  class << self
+    include GuiGeo::Tools
+  end
 end
 end

@@ -1,6 +1,4 @@
 require 'simplecov'
-SimpleCov.start do
-  add_filter "vendor/ruby"
-end
+SimpleCov.start
 
 require File.join(File.dirname(__FILE__),"..","lib","gui_geometry")

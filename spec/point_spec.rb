@@ -13,6 +13,22 @@ describe "Point" do
     (point(1,2) + 3).should == point(4,5)
   end
 
+  it "clone basic point" do
+    p1 = point(1,2)
+    p2 = p1.clone
+    p1.should == p2
+    p2.x = 3
+    p1.should_not == p2
+  end
+
+  it "clone complex point" do
+    p1 = point("hi","bye")
+    p2 = p1.clone
+    p1.should == p2
+    p2.x.upcase!
+    p1.should_not == p2
+  end
+
   it "-" do
     (point(9,8) - point(3,4)).should == point(6,4)
     (point(9,8) - 3).should == point(6,5)
@@ -78,6 +94,14 @@ describe "Point" do
     point(9,9).max(point(5,5)).should == point(9,9)
     point(9,5).max(point(5,9)).should == point(9,9)
     point(5,9).max(point(9,5)).should == point(9,9)
+  end
+
+  it "bound" do
+    point(3,4).bound(point(1,2), point(5,6)).should == point(3,4)
+    point(3,0).bound(point(1,2), point(5,6)).should == point(3,2)
+    point(3,6).bound(point(1,2), point(5,6)).should == point(3,6)
+    point(0,4).bound(point(1,2), point(5,6)).should == point(1,4)
+    point(6,4).bound(point(1,2), point(5,6)).should == point(5,4)
   end
 end
 end

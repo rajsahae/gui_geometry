@@ -13,6 +13,15 @@ describe "Rectangle" do
     expect { rect(1,2,3,4,5) }.to raise_error
   end
 
+  it "clone" do
+    r1 = rect(1,2,3,4)
+    r2 = r1.clone
+    r1.should == r2
+    r1.object_id.should_not == r2.object_id
+    r1.loc.object_id.should_not == r2.loc.object_id
+    r1.size.object_id.should_not == r2.size.object_id
+  end
+
   it "init with one point" do
     rect(point(1,2)).should == rect(0,0,1,2)
   end
@@ -76,11 +85,32 @@ describe "Rectangle" do
     rect(0,0,0,1).present?.should == false
     rect(0,0,0,0).present?.should == false
   end
+
   it ".blank?" do
     rect(0,0,1,1).blank?.should == false
     rect(0,0,1,0).blank?.should == true
     rect(0,0,0,1).blank?.should == true
     rect(0,0,0,0).blank?.should == true
+  end
+
+  it ".bound(point)" do
+    r = rect(5, 10, 15, 20)
+    r.bound(point(5,10)).should == point(5,10)
+    r.bound(point(20,30)).should == point(20,30)
+    r.bound(point(5,31)).should == point(5,30)
+    r.bound(point(21,10)).should == point(20,10)
+    r.bound(point(5,10)).should == point(5,10)
+    r.bound(point(5, 9)).should == point(5,10)
+    r.bound(point(4,10)).should == point(5,10)
+  end
+
+  it ".bound(smaller_rect)" do
+    r1 = rect(5, 10, 15, 20)
+    r1.bound(rect(5,0,5,5)).should == rect(5,10,5,5)
+    r1.bound(rect(0,10,5,5)).should == rect(5,10,5,5)
+    r1.bound(rect(0,30,5,5)).should == rect(5,25,5,5)
+    r1.bound(rect(30,0,5,5)).should == rect(15,10,5,5)
+    r1.bound(rect(0,0,20,5)).should == rect(5,10,15,5)
   end
 end
 end

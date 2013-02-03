@@ -23,6 +23,25 @@ class Rectangle < Struct.new(:loc, :size)
     !present?
   end
 
+  def clone
+    rect loc.clone, size.clone
+  end
+
+  # val can be a Rectangle or Point
+  # returns a Rectangle or Point that is within this Rectangle
+  # For Rectangles, the size is only changed if it has to be
+  def bound(val)
+    case val
+    when Rectangle then
+      r = val.clone
+      r.size = r.size.min(size)
+      r.loc = r.loc.bound(loc, loc + size - val.size)
+      r
+    when Point then (val-loc).bound(point, size) + loc
+    else raise ArgumentError.new("wrong type: (#{val.class}) - Rectangle or Point expected")
+    end
+  end
+
   def x; loc.x; end
   def y; loc.y; end
   def w; size.x; end
