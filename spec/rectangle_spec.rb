@@ -112,5 +112,23 @@ describe "Rectangle" do
     r1.bound(rect(30,0,5,5)).should == rect(15,10,5,5)
     r1.bound(rect(0,0,20,5)).should == rect(5,10,15,5)
   end
+
+  it ".overlaps? point" do
+    r1 = rect(5, 10, 15, 20)
+    r1.overlaps?(point(10,10)).should == true
+    r1.overlaps?(point(20,10)).should == false
+    r1.overlaps?(point(10,30)).should == false
+    r1.overlaps?(point(5,9)).should == false
+    r1.overlaps?(point(4,10)).should == false
+  end
+
+  it ".contains? point" do
+    r1 = rect(5, 10, 15, 20)
+    r1.contains?(point(10,10)).should == true
+    r1.contains?(point(20,10)).should == false
+    r1.contains?(point(10,30)).should == false
+    r1.contains?(point(5,9)).should == false
+    r1.contains?(point(4,10)).should == false
+  end
 end
 end
