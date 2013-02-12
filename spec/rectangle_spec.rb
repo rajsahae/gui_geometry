@@ -130,5 +130,11 @@ describe "Rectangle" do
     r1.contains?(point(5,9)).should == false
     r1.contains?(point(4,10)).should == false
   end
+
+  it ".contains? and .overlaps? with nil" do
+    r1 = rect(5, 10, 15, 20)
+    r1.overlaps?(nil).should == false
+    r1.contains?(nil).should == false
+  end
 end
 end

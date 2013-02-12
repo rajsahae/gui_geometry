@@ -12,6 +12,13 @@ module Tools
   end
   def bound(a,bounded,c) max(a,min(bounded,c)); end
 
+  def clone_value(v)
+    case v
+    when Fixnum, Bignum, Float then v
+    else v.clone
+    end
+  end
+
   class << self
     include GuiGeo::Tools
   end

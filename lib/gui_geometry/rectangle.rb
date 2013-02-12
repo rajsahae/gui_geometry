@@ -58,23 +58,25 @@ class Rectangle < Struct.new(:loc, :size)
     "(#{[loc.x,loc.y,size.x,size.y].join ','})"
   end
 
-  def overlaps?(b)
-    case b
+  def overlaps?(val)
+    case val
+    when nil then false
     when Point then
-      contains?(b)
+      contains?(val)
     when Rectangle then
-      b.loc + b.size > loc &&
-      loc + size > b.loc
+      val.loc + val.size > loc &&
+      loc + size > val.loc
     else raise ArgumentError.new("wrong type: (#{val.class}) - Rectangle or Point expected")
     end
   end
 
-  def contains?(b)
-    case b
+  def contains?(val)
+    case val
+    when nil then false
     when Point then
-      b >= loc && b < (loc+size)
+      val >= loc && val < (loc+size)
     when Rectangle then
-      (self & b) == self
+      (self & val) == self
     else raise ArgumentError.new("wrong type: (#{val.class}) - Rectangle or Point expected")
     end
   end
