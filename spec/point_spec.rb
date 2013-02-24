@@ -109,5 +109,18 @@ describe "Point" do
     point(-5, 3).area.should == -15
   end
 
+  it "width and height" do
+    point(15, 30).height.should == 30
+    point(15, 30).h.should == 30
+    point(15, 30).width.should == 15
+    point(15, 30).w.should == 15
+  end
+
+  it "line col column" do
+    point(15, 30).line.should == 30
+    point(15, 30).col.should == 15
+    point(15, 30).column.should == 15
+  end
+
 end
 end

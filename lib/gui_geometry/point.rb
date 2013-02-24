@@ -7,11 +7,13 @@ class Point < Struct.new(:x, :y)
     super if args.length!=0
   end
 
-  alias :width :x
   alias :w :x
-  alias :height :x
+  alias :width :x
+  alias :col :x
+  alias :column :x
+
   alias :h :y
-  alias :column :y
+  alias :height :y
   alias :line :y
 
   def min(b); point(Tools::min(x, b.x), Tools::min(y, b.y)); end
