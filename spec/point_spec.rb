@@ -103,5 +103,11 @@ describe "Point" do
     point(0,4).bound(point(1,2), point(5,6)).should == point(1,4)
     point(6,4).bound(point(1,2), point(5,6)).should == point(5,4)
   end
+
+  it ".area" do
+    point(15, 20).area.should == 300
+    point(-5, 3).area.should == -15
+  end
+
 end
 end

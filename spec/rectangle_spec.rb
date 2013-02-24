@@ -136,5 +136,9 @@ describe "Rectangle" do
     r1.overlaps?(nil).should == false
     r1.contains?(nil).should == false
   end
+
+  it ".area" do
+    rect(5, 10, 15, 20).area.should == 300
+  end
 end
 end

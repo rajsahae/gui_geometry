@@ -44,8 +44,12 @@ class Rectangle < Struct.new(:loc, :size)
 
   def x; loc.x; end
   def y; loc.y; end
-  def w; size.x; end
-  def h; size.y; end
+  def w; size.w; end
+  def h; size.h; end
+  alias :width :w
+  alias :height :h
+
+  def area; size.area; end
 
   def x_range; x .. (x + w - 1) end
   def y_range; y .. (y + h - 1) end

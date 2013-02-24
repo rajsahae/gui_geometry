@@ -7,6 +7,13 @@ class Point < Struct.new(:x, :y)
     super if args.length!=0
   end
 
+  alias :width :x
+  alias :w :x
+  alias :height :x
+  alias :h :y
+  alias :column :y
+  alias :line :y
+
   def min(b); point(Tools::min(x, b.x), Tools::min(y, b.y)); end
   def max(b); point(Tools::max(x, b.x), Tools::max(y, b.y)); end
   def bound(a, b); point(Tools::bound(a.x, x, b.x), Tools::bound(a.y, y, b.y)); end
@@ -25,5 +32,7 @@ class Point < Struct.new(:x, :y)
   def -(b) b.kind_of?(Point) ? point(x-b.x, y-b.y) : point(x-b, y-b) end
   def *(b) b.kind_of?(Point) ? point(x*b.x, y*b.y) : point(x*b, y*b) end
   def /(b) b.kind_of?(Point) ? point(x/b.x, y/b.y) : point(x/b, y/b) end
+
+  def area; x*y; end
 end
 end
