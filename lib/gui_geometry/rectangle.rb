@@ -51,8 +51,8 @@ class Rectangle < Struct.new(:loc, :size)
 
   def area; size.area; end
 
-  def x_range; x .. (x + w - 1) end
-  def y_range; y .. (y + h - 1) end
+  def x_range; x ... (x + w) end
+  def y_range; y ... (y + h) end
 
   def inspect
     "rect"+to_s
@@ -90,6 +90,11 @@ class Rectangle < Struct.new(:loc, :size)
   def bl; point(x, y + h); end
   def tr; point(x + w, y); end
 
+  def top; loc.x; end
+  def left; loc.y; end
+  def right; loc.x + size.x; end
+  def bottom; loc.x + size.y; end
+
 
   def union(b)
     return clone unless b
@@ -107,5 +112,41 @@ class Rectangle < Struct.new(:loc, :size)
     rect l, s
   end
   alias :| :intersection
+
+  # return 1-3 rectangles which, together, cover exactly the same area as self and b, but do not overlapp
+  def disjoint(b)
+    return self if !b || contains(b)
+    return b if b.contains(self)
+    return self,b unless overlaps?(b)
+    tl_contained = contains?(b.tl) ? 1 : 0
+    tr_contained = contains?(b.tr) ? 1 : 0
+    bl_contained = contains?(b.bl) ? 1 : 0
+    br_contained = contains?(b.br) ? 1 : 0
+    sum = tl_contained + tr_contained + bl_contained + br_contained
+    case sum
+    when 0 # rectangles form a plus "+"
+      if b.y < self.y
+        r1,r2 = b,self
+      else
+        r1,r2 = self,b
+      end
+      tl1 = r1.tl
+      br1 = point(r1.right, r2.top)
+      tl2 = point(r1.left, r2.bottom)
+      br2 = r1.br
+      [
+        r2,
+        rect(tl1,br1-tl1),
+        rect(tl2,br2-tl2),
+      ]
+    when 1
+    when 2
+    else raise "internal error in disjoint - cases 3 and 4 should be taken care of by the return-tests at the top of the method"
+    end
+
+
+
+
+  end
 end
 end

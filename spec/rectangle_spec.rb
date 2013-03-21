@@ -140,5 +140,12 @@ describe "Rectangle" do
   it ".area" do
     rect(5, 10, 15, 20).area.should == 300
   end
+
+  it ".y_range and .x_range" do
+    rect(5, 10, 15, 20).x_range.should == (5...20)
+    rect(5, 10, 15, 20).y_range.should == (10...30)
+    rect(0,0,0,0).x_range.should == (0...0)
+    rect(0,0,0,0).y_range.should == (0...0)
+  end
 end
 end
