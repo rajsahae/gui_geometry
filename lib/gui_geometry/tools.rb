@@ -14,7 +14,7 @@ module Tools
 
   def clone_value(v)
     case v
-    when Fixnum, Bignum, Float then v
+    when Integer, Float then v
     else v.clone
     end
   end
